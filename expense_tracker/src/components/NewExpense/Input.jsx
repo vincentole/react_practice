@@ -2,7 +2,7 @@ import Card from '../global/Card';
 import Button from '../global/Button';
 import { useState } from 'react';
 
-function Input() {
+function Input(props) {
     const [input, setInput] = useState({ title: '', amount: '', date: '' });
     const [isEditing, setIsEditing] = useState(false);
 
@@ -11,9 +11,15 @@ function Input() {
         setInput((prev) => ({ ...prev, [name]: value }));
     }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        const expenseData = {...input, date: new Date(input.date)};
+        props.onAddExpense(expenseData);
+    }
+
     return (
         <Card className='bg-primary-teal shadow-primary-teal/20'>
-            <form onSubmit={() => console.log('submitted')} className='space-x-2'>
+            <form onSubmit={handleSubmit} className='space-x-2'>
                 {isEditing && (
                     <Card>
                         <div className='flex flex-wrap gap-2'>
@@ -75,11 +81,7 @@ function Input() {
                         </Button>
                     )}
                     {isEditing && (
-                        <Button
-                            onClick={() => console.log('Click')}
-                            type='button'
-                            styleType='primary'
-                        >
+                        <Button type='submit' styleType='primary'>
                             Add Expense
                         </Button>
                     )}
