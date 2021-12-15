@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply block px-2 rounded-md text-primary-black bg-primary-white;
+  }
+}
