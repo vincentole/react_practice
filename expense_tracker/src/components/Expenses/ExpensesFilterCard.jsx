@@ -1,29 +1,43 @@
-import { useState } from "react";
-import Card from "../global/Card";
+import Card from '../global/Card';
 
-function ExpensesFilter() {
-    const [year, setYear] = useState('2021');
+function ExpensesFilterCard(props) {
+    const options = props.options.map((option, i) => <option key={i} value={option}>{option}</option>);
 
     function handleChange(event) {
-        const {value} = event.target;
-        setYear(value);
+        const { value } = event.target;
+        props.onSetYearFilter(value);
     }
+    
+    
 
     return (
-        <Card className="flex gap-4">
+        <Card className='flex gap-4'>
             <h2>Filter: </h2>
             <label htmlFor='year'>
-                Year
-                <select className="input inline-block ml-2" name='year' id='year' value={year} onChange={handleChange}>
-                    <option value='2017'>2017</option>
-                    <option value='2018'>2018</option>
-                    <option value='2019'>2019</option>
-                    <option value='2020'>2020</option>
-                    <option value='2021'>2021</option>
-                </select>
+                {options.length > 0 ? (
+                    <>
+                        Year
+                        <select
+                            className='input inline-block ml-2'
+                            name='year'
+                            id='year'
+                            value={props.yearFilter}
+                            onChange={handleChange}
+                        >
+                            {[
+                                <option key='-1' value='All'>
+                                    All
+                                </option>,
+                                ...options,
+                            ]}
+                        </select>
+                    </>
+                ) : (
+                    'No data available.'
+                )}
             </label>
         </Card>
     );
 }
 
-export default ExpensesFilter;
+export default ExpensesFilterCard;

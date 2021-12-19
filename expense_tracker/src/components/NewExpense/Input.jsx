@@ -1,6 +1,7 @@
 import Card from '../global/Card';
 import Button from '../global/Button';
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 function Input(props) {
     const [input, setInput] = useState({ title: '', amount: '', date: '' });
@@ -13,7 +14,7 @@ function Input(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        const expenseData = {...input, date: new Date(input.date)};
+        const expenseData = {...input, amount: Number(input.amount), date: new Date(input.date), id: nanoid()};
         props.onAddExpense(expenseData);
     }
 
