@@ -66,22 +66,25 @@ function App() {
             {ageInputError &&
                 createModal('Invalid Age', age_error_msg, setAgeInputError, ageInputError)}
             <div className='max-w-xl mx-auto mt-10 space-y-8'>
-                <Card className='flex flex-col gap-1'>
-                    <Label for='username' label='Username' />
-                    <Input
-                        type='text'
-                        name='username'
-                        input={inputName}
-                        setInput={setInputName}
-                        ref={inputNameRef}
-                    />
-                    <Label for='age' label='Age (Years)' />
-                    <Input type='number' name='age' input={inputAge} setInput={setInputAge} />
-                    <div className='mt-4'>
-                        <Button type='button' onClick={() => addUser(inputName, inputAge)}>
-                            Add User
-                        </Button>
-                    </div>
+                <Card>
+                    <form
+                        className='flex flex-col gap-1'
+                        onSubmit={() => addUser(inputName, inputAge)}
+                    >
+                        <Label for='username' label='Username' />
+                        <Input
+                            type='text'
+                            name='username'
+                            input={inputName}
+                            setInput={setInputName}
+                            ref={inputNameRef}
+                        />
+                        <Label for='age' label='Age (Years)' />
+                        <Input type='number' name='age' input={inputAge} setInput={setInputAge} />
+                        <div className='mt-4'>
+                            <Button type='submit'>Add User</Button>
+                        </div>
+                    </form>
                 </Card>
                 <Card className='flex flex-col gap-1'>
                     {usersList.length < 1 ? <h2>No users found.</h2> : usersList}
