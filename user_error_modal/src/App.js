@@ -76,7 +76,7 @@ function App() {
                         ref={inputNameRef}
                     />
                     <Label for='age' label='Age (Years)' />
-                    <Input type='text' name='age' input={inputAge} setInput={setInputAge} />
+                    <Input type='number' name='age' input={inputAge} setInput={setInputAge} />
                     <div className='mt-4'>
                         <Button type='button' onClick={() => addUser(inputName, inputAge)}>
                             Add User
