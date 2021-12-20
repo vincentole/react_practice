@@ -35,7 +35,9 @@ function App() {
         );
     }
 
-    function addUser(name, age) {
+    function addUser(e, name, age) {
+        e.preventDefault();
+
         if (!inputName.trim()) {
             setUsernameInputError(true);
         } else if (Number(inputAge) < 1) {
@@ -69,7 +71,7 @@ function App() {
                 <Card>
                     <form
                         className='flex flex-col gap-1'
-                        onSubmit={() => addUser(inputName, inputAge)}
+                        onSubmit={(e) => addUser(e, inputName, inputAge)}
                     >
                         <Label for='username' label='Username' />
                         <Input
