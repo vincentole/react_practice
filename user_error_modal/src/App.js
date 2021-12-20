@@ -37,7 +37,7 @@ function App() {
 
     function addUser(e, name, age) {
         e.preventDefault();
-
+        
         if (!inputName.trim()) {
             setUsernameInputError(true);
         } else if (Number(inputAge) < 1) {
