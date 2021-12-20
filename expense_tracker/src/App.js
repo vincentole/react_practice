@@ -25,6 +25,7 @@ function App() {
 
     useEffect(() => {
       filterYear(yearFilter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [items, yearFilter]);
 
     return (
