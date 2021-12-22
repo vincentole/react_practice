@@ -9,8 +9,8 @@ function Header(props) {
 
     return (
         <header className='bg-rose-900 text-white'>
-            <div className='fixed z-10 w-full'>
-                <div className='cstm-container min-h-[3.5rem] px-8 flex justify-between items-center bg-rose-900 shadow-md shadow-black/10'>
+            <div className='fixed z-10 w-full bg-rose-900 shadow-md shadow-black/10'>
+                <div className='cstm-container min-h-[3.5rem] px-8 flex justify-between items-center'>
                     <h1>Order Food</h1>
                     <CartBtn numberOfItems={numberOfCartItems} onClick={props.onShowCart} />
                 </div>
