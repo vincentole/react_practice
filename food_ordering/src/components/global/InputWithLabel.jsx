@@ -3,10 +3,11 @@ import { forwardRef } from "react";
 function InputWithLabel(props, ref) {
     const htmlProps = {...props};
     delete htmlProps.inputId;
+    delete htmlProps.labelClassName;
 
     return (
         <>
-            <label htmlFor={props.inputId}>{props.label}</label>
+            <label htmlFor={props.inputId} className={props.labelClassName} >{props.label}</label>
 
             <input
                 {...htmlProps}
