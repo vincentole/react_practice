@@ -65,7 +65,7 @@ const Shop = () => {
 
     return (
         <div className='bg-gray-100 py-6 px-8 space-y-4 rounded'>
-            <h2 className='text-xl font-bold'>Our Products</h2>
+            <h2 className='text-xl font-bold mb-8'>Our Products</h2>
             {shopList}
         </div>
     );
