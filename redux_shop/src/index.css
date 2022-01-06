@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Custom CSS */
+.error-toast-enter {
+  opacity: 0;
+}
+.error-toast-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.error-toast-exit {
+  opacity: 1;
+}
+.error-toast-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
