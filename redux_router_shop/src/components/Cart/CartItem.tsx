@@ -41,6 +41,7 @@ const CartItem: React.FC<{ item: CartItemModel }> = (props) => {
                     ariaDescribedby={props.item.title}
                     ariaLabel='Remove Item'
                     displayLabel='-'
+                    
                 />
                 <Button
                     onClick={onAddHandler}

@@ -71,6 +71,16 @@ const fetchCartData = () => {
 
         try {
             const cartItems = await fetchData();
+            if (!cartItems) {
+                dispatch(
+                    uiActions.showErrorToast({
+                        status: 'success',
+                        title: 'No Cart',
+                        message: 'Cart does not exists yet.',
+                    }),
+                );
+                return;
+            }
             dispatch(cartActions.replaceCart(cartItems));
             dispatch(
                 uiActions.showErrorToast({
@@ -88,7 +98,6 @@ const fetchCartData = () => {
         }
     };
 
-    
 };
 
 export { sendCartData, fetchCartData };

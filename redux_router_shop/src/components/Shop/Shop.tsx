@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import Spinner from '../../Icons/Spinner';
 import ShopItem from './ShopItem';
 
-type ShopType = {
+type ShopItemType = {
     id: string;
     price: number;
     title: string;
 };
 
 const Shop = () => {
-    const [shop, setShop] = useState<ShopType[]>([]);
+    const [shop, setShop] = useState<ShopItemType[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 

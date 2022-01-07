@@ -1,6 +1,10 @@
+
 import BackToStore from '../ItemDetails/BackToStore';
+import ItemDescription from '../ItemDetails/ItemDescription';
 
 const ItemDetails = () => {
+    
+
     return (
         <>
             <header className='bg-gray-700'>
@@ -13,7 +17,7 @@ const ItemDetails = () => {
             <main className='space-y-4'>
                 <div className='mt-12'></div>
                 <section className='max-w-4xl mx-auto'>
-                    
+                    <ItemDescription />
                 </section>
             </main>
         </>
